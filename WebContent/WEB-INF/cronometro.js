@@ -81,7 +81,7 @@ function mapear() {
 };
 
 /**
- * Pega a posição (longitude e a longitude) inicial do usuário
+ * Pega a posiï¿½ï¿½o (longitude e a longitude) inicial do usuï¿½rio
  */
 function getInitLocal() {
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -93,7 +93,7 @@ function getInitLocal() {
 }
 
 /**
- * Exibir mapa com ponto centralizado na localização do usuário
+ * Exibir mapa com ponto centralizado na localizaï¿½ï¿½o do usuï¿½rio
  */
 function configurarMapeamento() {
 	map.travelRoute({
@@ -107,7 +107,7 @@ function configurarMapeamento() {
 }
 
 /**
- * Desenha a roto percorrida pelo usuário em tempo real
+ * Desenha a roto percorrida pelo usuï¿½rio em tempo real
  */
 function desenharRota(e) {
 	$('#instructions').append('<li>'+e.instructions+'</li>');
@@ -126,7 +126,7 @@ function desenharRota(e) {
 }
 
 /**
- * Exibir mapa com ponto centralizado na localização do usuário
+ * Exibir mapa com ponto centralizado na localizaï¿½ï¿½o do usuï¿½rio
  */
 function exibirMapa() {
 	prettyPrint();
@@ -138,14 +138,14 @@ function exibirMapa() {
 }
 
 /**
- * Calcula o gasto de calorias do usuário após uma corrida 
+ * Calcula o gasto de calorias do usuï¿½rio apï¿½s uma corrida 
  */
 function calcularCalorias() {
 	return peso * minutos * 0.133;
 }
 
 /**
- * Calcula a distância percorrida pelo usuário 
+ * Calcula a distï¿½ncia percorrida pelo usuï¿½rio 
  */
 function calculateDistance(lat1, lon1, lat2, lon2) {
 	var R = 6371;
@@ -172,7 +172,7 @@ function printData() {
 }
 
 /**
- * Desliga o rastreamento, zera o cronômetro e finaliza a corrida.
+ * Desliga o rastreamento, zera o cronï¿½metro e finaliza a corrida.
  */
 function end() {
 	caloria = calcularCalorias();
