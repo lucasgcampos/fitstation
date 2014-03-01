@@ -25,13 +25,17 @@
 			  
 			  var id ="17939bf7";
 			  var key = "a0373061d12211c62b7677efc236e2b1";
-			  var query = "Easy Chicken Lettuce Wraps";
-			    
-			  $.getJSON("https://api.yummly.com/v1/api/recipes?_app_id=" + id + "&_app_key=" + key + "&q="+ query+"&requirePictures=true&callback=?", function(data) {
+			  var query = "Easy Chicken Lettuce Wraps"; //baixo
+			  var query2 = "Healthier Eggs Benedict"; //médio
+			  var query3 = "Rich Homemade Ricotta" //alto
+
+
+				    
+			  $.getJSON("https://api.yummly.com/v1/api/recipes?_app_id=" + id + "&_app_key=" + key + "&q="+ query2+"&requirePictures=true&callback=?", function(data) {
 			    $.each(data.matches, function() {
-			      
 			        $('#yummies')
 			        .append('<img src="' + this.smallImageUrls[0] + '" />' )
+			        .append('<h3>' + query2 + '</h3>')
 			        .append('<p>' + this.ingredients + '</p>').appendTo('#yummies').fadeIn();
 			    });
 			  });
