@@ -1,5 +1,5 @@
 var tempo = 0;
-var segundos = 0;
+var segundos = 55;
 
 function formatatempo(segs) {
 	minutos = 0;
@@ -141,7 +141,7 @@ function exibirMapa() {
  * Calcula o gasto de calorias do usu�rio ap�s uma corrida 
  */
 function calcularCalorias() {
-	return peso * minutos * 0.133;
+	return (peso * minutos * 0.133).toFixed(2);
 }
 
 /**
@@ -156,7 +156,7 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 		Math.sin(dLon / 2) * Math.sin(dLon / 2); 
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
 	var d = R * c;
-	return d;
+	return d.toFixed(1);
 }
 Number.prototype.toRad = function() {
 	return this * Math.PI / 180;
