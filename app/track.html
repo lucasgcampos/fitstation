@@ -2,7 +2,7 @@
 <html>
 	<head>
 	    
-	    <title>nome do aplicativo</title>
+	    <title>FitStation</title>
 	    <meta charset="UTF-8">
 	</head>
 	<body>
@@ -10,9 +10,6 @@
 		$(document).ready(function() {
 			$('.end').hide();
 		});
-		
-		
-
 		
 		function init() {
 			inicia();
@@ -22,14 +19,11 @@
 		}
 		</script>
 		<div>
-			<div data-role="header">
-				<h1>Run</h1>
-				<div data-role="navbar">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="track.html">Run</a></li>
-					</ul>
-				</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" style="font-size: 2em;">Início</a></li>
+					<li><a href="track.html" style="font-size: 2em;">Run</a></li>
+				</ul>
 			</div>
 			<div class="timer">
 				<p>
@@ -37,7 +31,7 @@
 	    		</p>
     		</div>
 			<div data-role="content">
-    			<button class="start"  onclick="init()">Começar Corrida</button>
+    			<button class="start" style="font-size: 2em;" onclick="init()">Começar Corrida</button>
 			
 				<div class="popin">
 		          <div id="map"></div>
@@ -47,7 +41,7 @@
 		          </ul>
 	 			</div>
 
-	 			<a class="end" href="data.html"><input type="button" onclick="end()" value="Finalizar corrida"></a>
+	 			<a class="end" style="font-size: 2em;" href="data.html"><input type="button" onclick="end()" value="Finalizar corrida"></a>
 	 			
  			</div>
 		</div>

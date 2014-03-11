@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="http://hpneo.github.io/gmaps/prettify/prettify.js"></script>
 	    <script type="text/javascript" src="cronometro.js"></script>
 	    
-	    <title>nome do aplicativo</title>
+	    <title>FitStation</title>
 	</head>
 	<body>
 		<script type="text/javascript">
@@ -25,9 +25,9 @@
 			  
 			  var id ="17939bf7";
 			  var key = "a0373061d12211c62b7677efc236e2b1";
-			  var query1 = "Easy Chicken Lettuce Wraps"; //baixo
-			  var query2 = "Healthier Eggs Benedict"; //médio
-			  var query3 = "Rich Homemade Ricotta" //alto
+			  var query1 = "Easy Chicken Lettuce Wraps";
+			  var query2 = "Healthier Eggs Benedict";
+			  var query3 = "Rich Homemade Ricotta"
 			  var query;
 			  if(caloria < 101) {
 				query = query1;				  
@@ -39,24 +39,25 @@
 
 				    
 			  $.getJSON("https://api.yummly.com/v1/api/recipes?_app_id=" + id + "&_app_key=" + key + "&q="+ query+"&requirePictures=true&callback=?", function(data) {
-			    $.each(data.matches, function() {
-			        $('#yummies')
-			        .append('<img src="' + this.smallImageUrls[0] + '" />' )
-			        .append('<h3>' + query + '</h3>')
-			        .append('<p>' + this.ingredients + '</p>').appendTo('#yummies').fadeIn();
+				var i = 0;
+				    $.each(data.matches, function() {
+				    if(i == 0) {
+						i++;
+						$('#yummies')
+				        .append('<img src="' + this.smallImageUrls[0] + '" />' )
+				        .append('<h3>' + query + '</h3>')
+				        .append('<p>' + this.ingredients + '</p>').appendTo('#yummies').fadeIn();
+					}
 			    });
 			  });
 			});
 		</script>
 		<div>
-			<div data-role="header">
-				<h1>Run</h1>
-				<div data-role="navbar">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="track.html">Run</a></li>
-					</ul>
-				</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" style="font-size: 2em;">Início</a></li>
+					<li><a href="track.html" style="font-size: 2em;">Run</a></li>
+				</ul>
 			</div>
 			<div data-role="content">
 				=======
@@ -65,7 +66,7 @@
 				</div>
 				
 				=======
-	 			<a href="index.html"><input type="button" value="Prosseguir"></a>
+	 			<a href="index.html"><input style="font-size: 2em;" type="button" value="Prosseguir"></a>
 	 			
  			</div>
 		</div>
