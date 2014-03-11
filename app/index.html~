@@ -22,7 +22,7 @@
 				</ul>
 			</div>
 			<div data-role="content">
-				<button id="home_network_button" data-icon="check" style="font-size: 2em;">teste</button>
+				<button id="home_network_button" data-icon="check">teste</button>
 			</div>
 		</div>
 		
