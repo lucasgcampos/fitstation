@@ -117,7 +117,7 @@ function desenharRota(e) {
             path: e.path,
             strokeColor: '#131540',
             strokeOpacity: 0.6,
-            strokeWeight: 6
+            strokeWeight: 6,
       });
      
       startLatitude = currentLatitude;
@@ -132,6 +132,7 @@ function exibirMapa() {
 	prettyPrint();
     map = new GMaps({  
 	      div: '#map',
+	      zoom: 17,
 	      lat: startLatitude,
 	      lng: startLongitude
     });
