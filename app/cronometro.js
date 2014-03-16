@@ -170,6 +170,7 @@ function printData() {
 	document.getElementById("distance").innerHTML = distancia;
 	document.getElementById("caloria").innerHTML = caloria;
 	document.getElementById("tempo").innerHTML = tempo;
+	console.log("dis: " + distancia + " cal: " + caloria + " time: " + tempo);
 }
 
 /**
@@ -181,4 +182,7 @@ function end() {
 	zera();
 	navigator.geolocation.clearWatch(watch);
 	watch = null;
+	$("#rota").remove();
+	$("#dados").show();
+	printData();
 }
