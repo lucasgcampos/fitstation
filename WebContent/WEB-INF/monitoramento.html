@@ -43,15 +43,18 @@
 		<div class="col-lg-12">
 			<button class="start btn btn-default" style="font-size: 2em; width: 100%;" onclick="init()">Começar Corrida</button>
 		</div>
-	      <br /><br /><br />
+	    
 		<div class="col-lg-12">
-			<div style="height: 530px; border: 2px;" id="map"></div>
+			<br /><br />
+			<div style="height: 300px; border: 2px;" id="map"></div>
 		</div>
 		<div class="row">
 	        <ul id="instructions">
 	        </ul>
 		</div>
-		<button type="button" class="end btn btn-default" style="font-size: 2em; width: 100%;" onclick="end()">Finalizar corrida</button>
+		<div class="col-lg-12">
+			<button type="button" class="end btn btn-default" style="font-size: 2em; width: 100%;" onclick="end()">Finalizar corrida</button>
+		</div>
     </div>
     
     <div id="dados">
@@ -62,8 +65,9 @@
       		Tempo: <span id="tempo"></span><br>
   		</p>
 	 	</div>	
-	      
-		<button type="button" onclick="loadSugest()" class="btn btn-default" style="font-size: 2em; width: 100%;">Sugestão de Alimentação</button>
+	     <div class="col-lg-12">
+			<button type="button" onclick="loadSugest()" class="btn btn-default" style="font-size: 2em; width: 100%;">Sugestão de Alimentação</button>
+		</div>
     </div>
     
     <div id="sugestao">
@@ -82,8 +86,6 @@
 			  } else {
 				  query = query3;
 			  }
-
-				    
 			  $.getJSON("https://api.yummly.com/v1/api/recipes?_app_id=" + id + "&_app_key=" + key + "&q="+ query+"&requirePictures=true&callback=?", function(data) {
 				var i = 0;
 				    $.each(data.matches, function() {
@@ -101,11 +103,11 @@
 		<div>
 			<div data-role="content">
 				<div id="yummies"></div>
-				
-	 			<a href="home.html">
-	 				<button type="button" class="btn btn-default" style="font-size: 2em; width: 100%;">Prosseguir</button>
-	 			</a>
-	 			
+				<div class="col-lg-12">				
+		 			<a href="home.html">
+		 				<button type="button" class="btn btn-default" style="font-size: 2em; width: 100%;">Prosseguir</button>
+		 			</a>
+		 		</div>
  			</div>
 		</div>
     </div>
