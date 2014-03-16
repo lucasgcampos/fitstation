@@ -11,11 +11,46 @@
  </head>
 
  <body>
+ 	<script type="text/javascript">
+		$(document).ready(function(){
+			  
+			  var id ="17939bf7";
+			  var key = "a0373061d12211c62b7677efc236e2b1";
+			  var query1 = "Easy Chicken Lettuce Wraps";
+			  var query2 = "Healthier Eggs Benedict";
+			  var query3 = "Rich Homemade Ricotta"
+			  var query;
+			  if(caloria < 101) {
+				query = query1;				  
+			  } else if(caloria > 100 && caloria < 200) {
+				  query = query2;  
+			  } else {
+				  query = query3;
+			  }
+
+				    
+			  $.getJSON("https://api.yummly.com/v1/api/recipes?_app_id=" + id + "&_app_key=" + key + "&q="+ query+"&requirePictures=true&callback=?", function(data) {
+				var i = 0;
+				    $.each(data.matches, function() {
+				    if(i == 0) {
+						i++;
+						$('#yummies')
+				        .append('<img src="' + this.smallImageUrls[0] + '" />' )
+				        .append('<h3 style="font-size: 3em">' + query + '</h3>')
+				        .append('<p style="font-size: 2em">' + this.ingredients + '</p>').appendTo('#yummies').fadeIn();
+					}
+			    });
+			  });
+			});
+	</script>
     <div data-include="menu.html"></div>
 		
+	<div id="yummies"></div>
+				
+	<a href="index.html">
+		<button type="button" class="btn btn-default" style="font-size: 2em; width: 100%;">Prosseguir</button>
+	</a>
       
-	<p>aaa</p>
-
 
 	<script src="csi.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

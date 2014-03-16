@@ -186,3 +186,9 @@ function end() {
 	$("#dados").show();
 	printData();
 }
+
+function loadSugest() {
+	$("#dados").hide();
+	$("#sugestao").show();
+	sugest();
+}
