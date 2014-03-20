@@ -2,3 +2,13 @@
 	font-size: 2em;
 	width: 100%;
 }
+
+.big-text {
+	font-size: 3em;
+}
+
+#map {
+	height: 300px; 
+	border: 2px;
+	margin: 10px;
+}
