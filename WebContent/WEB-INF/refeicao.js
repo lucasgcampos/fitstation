@@ -25,3 +25,9 @@ function selecionarRefeicao() {
 		return "Rich Homemade Ricotta";
 	}
 }
+
+function loadSugest() {
+	$("#dados").hide();
+	$("#sugestao").show();
+	sugerirRefeicao();
+}
