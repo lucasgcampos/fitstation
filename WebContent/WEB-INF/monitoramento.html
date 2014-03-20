@@ -29,13 +29,13 @@
     <div data-include="menu.html"></div>
     <!--=========================================================================================================================== -->
 	<div id="rota" data-role="content">
-		<div class="timer">
+		<div class="text-center" style="font-size: 3em;">
 			<p>
 	      		<span id="counter"></span> 
 	  		</p>
 		</div>
 		<div class="col-lg-12">
-			<button class="start btn btn-default" style="font-size: 2em; width: 100%;" onclick="init()">Começar Corrida</button>
+			<button class="start btn btn-default big-button" onclick="init()">Começar Corrida</button>
 		</div>
 		<div class="col-lg-12">
 			<br /><br />
@@ -46,12 +46,12 @@
 	        </ul>
 		</div>
 		<div class="col-lg-12">
-			<button type="button" class="end btn btn-default" style="font-size: 2em; width: 100%;" onclick="end()">Finalizar corrida</button>
+			<button type="button" class="end btn btn-default big-button" onclick="end()">Finalizar corrida</button>
 		</div>
     </div>
 	<!--=========================================================================================================================== -->
     <div id="dados">
-    	<div class="timer">
+    	<div class="col-lg-12" style="font-size: 2em;">
 		<p>
       		Calorias: <span id="caloria"></span><br>
       		Distância: <span id="distance"> </span> km<br>
@@ -59,7 +59,7 @@
   		</p>
 	 	</div>	
 	     <div class="col-lg-12">
-			<button type="button" onclick="loadSugest()" class="btn btn-default" style="font-size: 2em; width: 100%;">Refeição</button>
+			<button type="button" onclick="loadSugest()" class="btn btn-default big-button">Refeição</button>
 		</div>
     </div>
    	<!--=========================================================================================================================== -->
@@ -69,7 +69,7 @@
 		</div>
 		<div class="col-lg-12">				
  			<a href="home.html">
- 				<button type="button" class="btn btn-default" style="font-size: 2em; width: 100%;">Prosseguir</button>
+ 				<button type="button" class="btn btn-default big-button">Prosseguir</button>
  			</a>
  		</div>
     </div>
@@ -78,8 +78,8 @@
 	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	<script src="http://hpneo.github.io/gmaps/gmaps.js"></script>
 	<script src="http://hpneo.github.io/gmaps/prettify/prettify.js"></script>
-	<script src="csi.js"></script>
-	
+
+	<script src="	csi.js"></script>
     <script src="cronometro.js"></script>
     <script src="refeicao.js"></script>
     <script src="geolocalizacao.js"></script>
