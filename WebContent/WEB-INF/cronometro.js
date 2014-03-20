@@ -62,7 +62,7 @@ var currentLatitude = 0;
 var currentLongitude = 0;
 var distancia = 0;
 var map;
-var caloria;
+window.caloria;
 
 var watch;
     
@@ -157,7 +157,7 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 		Math.sin(dLon / 2) * Math.sin(dLon / 2); 
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
 	var d = R * c;
-	return d.toFixed(1);
+	return d;
 }
 Number.prototype.toRad = function() {
 	return this * Math.PI / 180;
@@ -167,17 +167,16 @@ Number.prototype.toRad = function() {
  * Imprime os dados na tela 
  */
 function printData() {
-	document.getElementById("distance").innerHTML = distancia;
-	document.getElementById("caloria").innerHTML = caloria;
+	document.getElementById("distance").innerHTML = distancia.toFixed(1);
+	document.getElementById("caloria").innerHTML = window.caloria;
 	document.getElementById("tempo").innerHTML = tempo;
-	console.log("dis: " + distancia + " cal: " + caloria + " time: " + tempo);
 }
 
 /**
  * Desliga o rastreamento, zera o cronômetro e finaliza a corrida.
  */
 function end() {
-	caloria = calcularCalorias();
+	window.caloria = calcularCalorias();
 	para();
 	zera();
 	navigator.geolocation.clearWatch(watch);
@@ -190,5 +189,5 @@ function end() {
 function loadSugest() {
 	$("#dados").hide();
 	$("#sugestao").show();
-	sugest();
+	sugerirRefeicao();
 }
