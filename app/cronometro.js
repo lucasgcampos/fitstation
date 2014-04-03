@@ -132,6 +132,7 @@ function exibirMapa() {
 	prettyPrint();
     map = new GMaps({  
 	      div: '#map',
+	      zoom: 17,
 	      lat: startLatitude,
 	      lng: startLongitude
     });
