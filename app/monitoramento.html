@@ -20,6 +20,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.end').hide();
+			$("#dados").hide();
+			$("#sugestao").hide();
 		});
 		
 		function init() {
@@ -29,31 +31,84 @@
 			mapear();
 		}
 	</script>
-	
     <div data-include="menu.html"></div>
+	<div id="rota" data-role="content">
+		
+		<div class="timer">
+			<p>
+	      		<span id="counter"></span> 
+	  		</p>
+		</div>
 	
-	<div class="timer">
+		<div class="col-lg-12">
+			<button class="start btn btn-default" style="font-size: 2em; width: 100%;" onclick="init()">Começar Corrida</button>
+		</div>
+	    
+		<div class="col-lg-12">
+			<br /><br />
+			<div style="height: 300px; border: 2px;" id="map"></div>
+		</div>
+		<div class="row">
+	        <ul id="instructions">
+	        </ul>
+		</div>
+		<div class="col-lg-12">
+			<button type="button" class="end btn btn-default" style="font-size: 2em; width: 100%;" onclick="end()">Finalizar corrida</button>
+		</div>
+    </div>
+    
+    <div id="dados">
+    	<div class="timer">
 		<p>
-      		<span id="counter"></span> 
+      		Calorias: <span id="caloria"></span><br>
+      		Distância: <span id="distance"> km</span><br>
+      		Tempo: <span id="tempo"></span><br>
   		</p>
-	</div>
-
-
-
-	<div class="col-lg-12">
-		<button class="start btn btn-default" style="font-size: 2em; width: 100%;" onclick="init()">Começar Corrida</button>
-	</div>
-      <br /><br /><br />
-	<div class="col-lg-12">
-		<div style="height: 530px; border: 2px;" id="map"></div>
-	</div>
-	<div class="row">
-        <ul id="instructions">
-        </ul>
-	</div>
-	<a class="end" href="data.html">
-		<button type="button" class="btn btn-default" style="font-size: 2em; width: 100%;" onclick="end()">Finalizar corrida</button>
-	</a>
+	 	</div>	
+	     <div class="col-lg-12">
+			<button type="button" onclick="loadSugest()" class="btn btn-default" style="font-size: 2em; width: 100%;">Refeição</button>
+		</div>
+    </div>
+    
+    <div id="sugestao">
+    	<script type="text/javascript">
+			function sugest() {			  
+			  var id ="17939bf7";
+			  var key = "a0373061d12211c62b7677efc236e2b1";
+			  var query1 = "Easy Chicken Lettuce Wraps";
+			  var query2 = "Healthier Eggs Benedict";
+			  var query3 = "Rich Homemade Ricotta"
+			  var query;
+			  if(caloria < 101) {
+				query = query1;				  
+			  } else if(caloria > 100 && caloria < 200) {
+				  query = query2;  
+			  } else {
+				  query = query3;
+			  }
+			  $.getJSON("https://api.yummly.com/v1/api/recipes?_app_id=" + id + "&_app_key=" + key + "&q="+ query+"&requirePictures=true&callback=?", function(data) {
+				var i = 0;
+				    $.each(data.matches, function() {
+				    if(i == 0) {
+						i++;
+						$('#yummies')
+				        .append('<img src="' + this.smallImageUrls[0] + '" />' )
+				        .append('<h3 style="font-size: 3em">' + query + '</h3>')
+				        .append('<p style="font-size: 2em">' + this.ingredients + '</p>').appendTo('#yummies').fadeIn();
+					}
+			    });
+			  });
+			}
+		</script>
+		<div class="col-lg-12">
+			<div id="yummies"></div>
+		</div>
+		<div class="col-lg-12">				
+ 			<a href="home.html">
+ 				<button type="button" class="btn btn-default" style="font-size: 2em; width: 100%;">Prosseguir</button>
+ 			</a>
+ 		</div>
+    </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
