@@ -1,14 +1,4 @@
-.big-button {
-	font-size: 2em;
-	width: 100%;
-}
-
-.big-text {
+.timer {
+	text-align: center;
 	font-size: 3em;
-}
-
-#map {
-	height: 300px; 
-	border: 2px;
-	margin: 10px;
 }

@@ -1,6 +1,6 @@
 window.onload = function() {
 	var elements = document.getElementsByTagName('*'),
-		i = 0;
+		i;
 	for (i in elements) {
 		if (elements[i].hasAttribute && elements[i].hasAttribute('data-include')) {
 			fragment(elements[i], elements[i].getAttribute('data-include'));

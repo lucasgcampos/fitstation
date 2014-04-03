@@ -2,19 +2,19 @@ var tempo = 0;
 var segundos = 0;
 
 function formatatempo(segs) {
-	window.minutos = 0;
+	minutos = 0;
 	hora = 0;
 	
 	while(segs >= 60) {
 		if (segs >= 60) {
 			segs = segs - 60;
-			window.minutos = window.minutos + 1;
+			minutos = minutos + 1;
 		}
 	}
 
-	while(window.minutos >= 60) {
-		if (window.minutos >= 60) {
-			window.minutos = window.minutos - 60;
+	while(minutos >= 60) {
+		if (minutos >= 60) {
+			minutos = minutos - 60;
 			hora = hora + 1;
 		}
 	}
@@ -22,13 +22,13 @@ function formatatempo(segs) {
 	if (hora < 10) {
 		hora = "0" + hora;
 	}
-	if (window.minutos < 10) {
-		window.minutos = "0" + window.minutos;
+	if (minutos < 10) {
+		minutos = "0" + minutos;
 	}
 	if (segs < 10) {
 		segs = "0" + segs;
 	}
-	cronometro = hora + ":" + window.minutos + ":" + segs;
+	cronometro = hora + ":" + minutos + ":" + segs;
 	
 	return cronometro;
 }
@@ -53,46 +53,26 @@ function zera(){
 	document.getElementById("counter").innerHTML = formatatempo(segundos);
 }
 
-/**
- * Imprime os dados na tela 
- */
-function printData() {
-	document.getElementById("distance").innerHTML = window.distancia.toFixed(1);
-	document.getElementById("caloria").innerHTML = window.caloria;
-	document.getElementById("tempo").innerHTML = tempo;
-}
 
-/**
- * Desliga o rastreamento, zera o cronômetro e finaliza a corrida.
- */
-function end() {
-	window.caloria = calcularCalorias();
-	para();
-	zera();
-	navigator.geolocation.clearWatch(watch);
-	watch = null;
-	$("#rota").remove();
-	$("#dados").show();
-	printData();
-}
 
 var peso = 60;
 var startLatitude = 0;
 var startLongitude = 0;
 var currentLatitude = 0; 
 var currentLongitude = 0;
+var distancia = 0;
 var map;
-var watch;
-window.distancia = 0;
-window.caloria;
+var caloria;
 
+var watch;
+    
 function mapear() {
     if (navigator.geolocation) {
     	getInitLocal();
 	watch = navigator.geolocation.watchPosition(function(position) {
 		currentLatitude = position.coords.latitude;
 		currentLongitude = position.coords.longitude;
-		window.distancia += calculateDistance(startLatitude, startLongitude, currentLatitude, currentLongitude);
+		distancia += calculateDistance(startLatitude, startLongitude, currentLatitude, currentLongitude);
 		configurarMapeamento();
 	});
     }  
@@ -168,9 +148,6 @@ function calcularCalorias() {
 /**
  * Calcula a distância percorrida pelo usuário 
  */
-//Reused code - copyright Moveable Type Scripts - retrieved May 4, 2010.
-//http://www.movable-type.co.uk/scripts/latlong.html
-//Under Creative Commons License http://creativecommons.org/licenses/by/3.0/
 function calculateDistance(lat1, lon1, lat2, lon2) {
 	var R = 6371;
 	var dLat = (lat2 - lat1).toRad();
@@ -180,8 +157,28 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 		Math.sin(dLon / 2) * Math.sin(dLon / 2); 
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
 	var d = R * c;
-	return d;
+	return d.toFixed(1) + " km";
 }
 Number.prototype.toRad = function() {
 	return this * Math.PI / 180;
 };
+
+/**
+ * Imprime os dados na tela 
+ */
+function printData() {
+	document.getElementById("distance").innerHTML = distancia;
+	document.getElementById("caloria").innerHTML = caloria;
+	document.getElementById("tempo").innerHTML = tempo;
+}
+
+/**
+ * Desliga o rastreamento, zera o cronômetro e finaliza a corrida.
+ */
+function end() {
+	caloria = calcularCalorias();
+	para();
+	zera();
+	navigator.geolocation.clearWatch(watch);
+	watch = null;
+}

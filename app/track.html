@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	    
+	    <title>FitStation</title>
+	    <meta charset="UTF-8">
+	</head>
+	<body>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('.end').hide();
+		});
+		
+		function init() {
+			inicia();
+			$('.start').hide();
+			$('.end').show();
+			mapear();
+		}
+		</script>
+		<div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" style="font-size: 2em;">Início</a></li>
+					<li><a href="track.html" style="font-size: 2em;">Run</a></li>
+				</ul>
+			</div>
+			<div class="timer">
+				<p>
+	        		<span id="counter"></span> 
+	    		</p>
+    		</div>
+			<div data-role="content">
+    			<button class="start" style="font-size: 2em;" onclick="init()">Começar Corrida</button>
+				
+				<div class="popin">
+		          <div style="height: 530px;" id="map"></div>
+		        </div>
+		        <div class="row">
+		          <ul id="instructions">
+		          </ul>
+	 			</div>
+	 			<a class="end" href="data.html">
+	 				<button type="button" style="font-size: 2em;" onclick="end()">Finalizar corrida</button>
+	 			</a>
+ 			</div>
+		</div>
+	</body>
+</html>
