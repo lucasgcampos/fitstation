@@ -54,13 +54,13 @@ function configurarMapeamento() {
     		desenharRota(e);
     	}
     });
-	if(window.segundos > 20) {
+	if(window.minutos > 20) {
 		map.addMarker({
 			lat: startLatitude,
 			lng: startLongitude,
 			title: 'Largada!',
 			click: function(e) {
-				alert('Ponto de Largada! ');
+				alert('Ponto de Largada!');
 			}
 		});
 	}
