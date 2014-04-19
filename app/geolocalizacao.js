@@ -54,14 +54,16 @@ function configurarMapeamento() {
     		desenharRota(e);
     	}
     });
-	map.addMarker({
-		lat: startLatitude,
-		lng: startLongitude,
-		title: 'Largada!',
-		click: function(e) {
-			alert('Largada!');
-		}
-	});
+	if(window.minutos > 20) {
+		map.addMarker({
+			lat: startLatitude,
+			lng: startLongitude,
+			title: 'Largada!',
+			click: function(e) {
+				alert('Ponto de Largada!');
+			}
+		});
+	}
 }
 
 /**
