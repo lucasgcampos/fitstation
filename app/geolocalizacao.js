@@ -9,6 +9,7 @@ var map;
 var watch;
 window.distancia = 0;
 window.caloria;
+var overlay = 0;
 
 function mapear() {
     if (navigator.geolocation) {
@@ -54,7 +55,8 @@ function configurarMapeamento() {
     		desenharRota(e);
     	}
     });
-	if(window.minutos > 20) {
+	if(overlay == 0 && startLatitude != 0) {
+		overlay++;
 		map.addMarker({
 			lat: startLatitude,
 			lng: startLongitude,
