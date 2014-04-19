@@ -14,12 +14,12 @@ function mapear() {
     if (navigator.geolocation) {
     	getInitLocal();
     	
-	watch = navigator.geolocation.watchPosition(function(position) {
-		currentLatitude = position.coords.latitude;
-		currentLongitude = position.coords.longitude;
-		window.distancia += calculateDistance(startLatitude, startLongitude, currentLatitude, currentLongitude);
-		configurarMapeamento();
-	});
+		watch = navigator.geolocation.watchPosition(function(position) {
+			currentLatitude = position.coords.latitude;
+			currentLongitude = position.coords.longitude;
+			window.distancia += calculateDistance(startLatitude, startLongitude, currentLatitude, currentLongitude);
+			configurarMapeamento();
+		});
     }  
     exibirMapa();
   $('ul').hide();
@@ -42,16 +42,6 @@ function getInitLocal() {
 	});
 }
 
-function marcarPontoPartida(latitude, longitude) {
-	if(window.minutos < 5) {
-		map.drawOverlay({
-			lat: latitude,
-			lng: longitude,
-			content: '<div class="overlay">Você está aqui</div>'
-		});
-	}
-}
-
 /**
  * Exibir mapa com ponto centralizado na localização do usuário
  */
@@ -64,6 +54,14 @@ function configurarMapeamento() {
     		desenharRota(e);
     	}
     });
+	map.addMarker({
+		lat: startLatitude,
+		lng: startLongitude,
+		title: 'Largada!',
+		click: function(e) {
+			alert('Largada!');
+		}
+	});
 }
 
 /**
@@ -94,7 +92,7 @@ function exibirMapa() {
 	      div: '#map',
 //	      zoom: 17,
 	      lat: startLatitude,
-	      lng: startLongitude
+	      lng: startLongitude,
     });
 }
 
