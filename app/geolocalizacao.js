@@ -54,7 +54,7 @@ function configurarMapeamento() {
     		desenharRota(e);
     	}
     });
-	if(window.minutos > 20) {
+	if(window.segundos > 20) {
 		map.addMarker({
 			lat: startLatitude,
 			lng: startLongitude,

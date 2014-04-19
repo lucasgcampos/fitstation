@@ -1,6 +1,6 @@
 'strict';
 var tempo = 0;
-var segundos = 0;
+var window.segundos = 0;
 
 function formatatempo(segs) {
 	window.minutos = 0;
@@ -35,8 +35,8 @@ function formatatempo(segs) {
 }
 
 function conta() {
-	segundos++;
-	document.getElementById("counter").innerHTML = formatatempo(segundos);
+	window.segundos++;
+	document.getElementById("counter").innerHTML = formatatempo(window.segundos);
 }
 
 function inicia(){
@@ -50,8 +50,8 @@ function para(){
 function zera(){
 	tempo = cronometro;
 	clearInterval(interval);
-	segundos = 0;
-	document.getElementById("counter").innerHTML = formatatempo(segundos);
+	window.segundos = 0;
+	document.getElementById("counter").innerHTML = formatatempo(window.segundos);
 }
 
 /**
