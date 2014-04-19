@@ -1,3 +1,4 @@
+'strict';
 function sugerirRefeicao() {			  
 	var id ="17939bf7";
 	var key = "a0373061d12211c62b7677efc236e2b1";

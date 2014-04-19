@@ -1,3 +1,4 @@
+'strict';
 var tempo = 0;
 var segundos = 0;
 

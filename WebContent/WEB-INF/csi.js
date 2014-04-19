@@ -1,3 +1,4 @@
+'strict';
 window.onload = function() {
 	var elements = document.getElementsByTagName('*'),
 		i = 0;

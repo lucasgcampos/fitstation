@@ -1,3 +1,5 @@
+'strict';
+
 var peso = 60;
 var startLatitude = 0;
 var startLongitude = 0;
@@ -11,6 +13,7 @@ window.caloria;
 function mapear() {
     if (navigator.geolocation) {
     	getInitLocal();
+    	
 	watch = navigator.geolocation.watchPosition(function(position) {
 		currentLatitude = position.coords.latitude;
 		currentLongitude = position.coords.longitude;
@@ -31,7 +34,22 @@ function getInitLocal() {
 		startLongitude = position.coords.longitude;
 	}, function(error) {
 	alert("Error occurred. Error code: " + error.code);
+	 // error.code can be:
+    //   0: unknown error
+    //   1: permission denied
+    //   2: position unavailable (error response from location provider)
+    //   3: timed out
 	});
+}
+
+function marcarPontoPartida(latitude, longitude) {
+	if(window.minutos < 5) {
+		map.drawOverlay({
+			lat: latitude,
+			lng: longitude,
+			content: '<div class="overlay">Você está aqui</div>'
+		});
+	}
 }
 
 /**
@@ -41,7 +59,7 @@ function configurarMapeamento() {
 	map.travelRoute({
     	origin: [startLatitude, startLongitude],
     	destination: [currentLatitude, currentLongitude],
-    	travelMode: 'walking',
+    	travelMode: 'driving',
     	step: function(e){
     		desenharRota(e);
     	}
