@@ -32,6 +32,9 @@ function getInitLocal() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		startLatitude = position.coords.latitude;
 		startLongitude = position.coords.longitude;
+		console.log(startLatitude);
+		console.log(startLongitude);
+		console.log(position);
 	}, function(error) {
 	alert("Error occurred. Error code: " + error.code);
 	 // error.code can be:
@@ -40,16 +43,6 @@ function getInitLocal() {
     //   2: position unavailable (error response from location provider)
     //   3: timed out
 	});
-}
-
-function marcarPontoPartida(latitude, longitude) {
-	if(window.minutos < 5) {
-		map.drawOverlay({
-			lat: latitude,
-			lng: longitude,
-			content: '<div class="overlay">Você está aqui</div>'
-		});
-	}
 }
 
 /**
@@ -96,6 +89,10 @@ function exibirMapa() {
 	      lat: startLatitude,
 	      lng: startLongitude
     });
+    console.log(1);
+    console.log(startLatitude);
+	console.log(startLongitude);
+	console.log(position);
 }
 
 /**
