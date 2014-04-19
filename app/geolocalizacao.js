@@ -14,12 +14,12 @@ function mapear() {
     if (navigator.geolocation) {
     	getInitLocal();
     	
-	watch = navigator.geolocation.watchPosition(function(position) {
-		currentLatitude = position.coords.latitude;
-		currentLongitude = position.coords.longitude;
-		window.distancia += calculateDistance(startLatitude, startLongitude, currentLatitude, currentLongitude);
-		configurarMapeamento();
-	});
+		watch = navigator.geolocation.watchPosition(function(position) {
+			currentLatitude = position.coords.latitude;
+			currentLongitude = position.coords.longitude;
+			window.distancia += calculateDistance(startLatitude, startLongitude, currentLatitude, currentLongitude);
+			configurarMapeamento();
+		});
     }  
     exibirMapa();
   $('ul').hide();
@@ -32,9 +32,6 @@ function getInitLocal() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		startLatitude = position.coords.latitude;
 		startLongitude = position.coords.longitude;
-		console.log(startLatitude);
-		console.log(startLongitude);
-		console.log(position);
 	}, function(error) {
 	alert("Error occurred. Error code: " + error.code);
 	 // error.code can be:
@@ -57,6 +54,14 @@ function configurarMapeamento() {
     		desenharRota(e);
     	}
     });
+	map.addMarker({
+		lat: startLatitude,
+		lng: startLongitude,
+		title: 'Largada!',
+		click: function(e) {
+			alert('Largada!');
+		}
+	});
 }
 
 /**
@@ -87,12 +92,8 @@ function exibirMapa() {
 	      div: '#map',
 //	      zoom: 17,
 	      lat: startLatitude,
-	      lng: startLongitude
+	      lng: startLongitude,
     });
-    console.log(1);
-    console.log(startLatitude);
-	console.log(startLongitude);
-	console.log(position);
 }
 
 /**
