@@ -60,7 +60,7 @@ function configurarMapeamento() {
 			lng: startLongitude,
 			title: 'Largada!',
 			click: function(e) {
-				alert('Ponto de Largada!');
+				alert('Ponto de Largada! ');
 			}
 		});
 	}
