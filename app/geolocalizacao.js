@@ -42,6 +42,16 @@ function getInitLocal() {
 	});
 }
 
+function marcarPontoPartida(latitude, longitude) {
+	if(window.minutos < 5) {
+		map.drawOverlay({
+			lat: latitude,
+			lng: longitude,
+			content: '<div class="overlay">Você está aqui</div>'
+		});
+	}
+}
+
 /**
  * Exibir mapa com ponto centralizado na localização do usuário
  */
@@ -49,7 +59,7 @@ function configurarMapeamento() {
 	map.travelRoute({
     	origin: [startLatitude, startLongitude],
     	destination: [currentLatitude, currentLongitude],
-    	travelMode: 'walking',
+    	travelMode: 'driving',
     	step: function(e){
     		desenharRota(e);
     	}
