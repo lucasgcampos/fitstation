@@ -5,21 +5,21 @@ var segundos = 0;
 function formatatempo(segs) {
 	window.minutos = 0;
 	hora = 0;
-	
+
 	while(segs >= 60) {
 		if (segs >= 60) {
 			segs = segs - 60;
 			window.minutos = window.minutos + 1;
 		}
 	}
-
+	
 	while(window.minutos >= 60) {
 		if (window.minutos >= 60) {
 			window.minutos = window.minutos - 60;
 			hora = hora + 1;
 		}
 	}
-
+	
 	if (hora < 10) {
 		hora = "0" + hora;
 	}
@@ -55,8 +55,8 @@ function zera(){
 }
 
 /**
- * Imprime os dados na tela 
- */
+* Imprime os dados na tela
+*/
 function printData() {
 	document.getElementById("distance").innerHTML = window.distancia.toFixed(1);
 	document.getElementById("caloria").innerHTML = window.caloria;
@@ -65,8 +65,8 @@ function printData() {
 }
 
 /**
- * Desliga o rastreamento, zera o cronômetro e finaliza a corrida.
- */
+* Desliga o rastreamento, zera o cronômetro e finaliza a corrida.
+*/
 function end() {
 	window.caloria = calcularCalorias();
 	para();
